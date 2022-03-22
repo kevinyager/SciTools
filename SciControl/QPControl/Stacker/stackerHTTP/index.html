@@ -1,0 +1,42 @@
+<html>
+<head>
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
+<title>QPress Stacker</title>
+<style>
+body {
+    font-family: courier, serif;
+}
+table {
+    font-size: 24px;
+    border-collapse:collapse;
+}
+tr.border_bottom td {
+    border-bottom: 1px solid black;
+}
+tr.border_top td {
+    border-top: 1px solid black;
+}
+</style>
+<script type="text/javascript">
+    function updateStackerPositions() {
+        fetch('http://localhost:3030/cgi-bin/status.py')
+            .then(function(response) {
+                response.text().then(function(text) {
+                    document.getElementById("stackerpositions").innerHTML = text;
+                });
+            });
+        //document.getElementById("stackerpositions").innerHTML = "New text inside the text element!"+Math.random();
+        setTimeout(updateStackerPositions, 300);
+    }
+</script>
+</head>
+<body onload="updateStackerPositions()">
+<a href="http://gisaxs.com/CS/index.php/QPress:Stacker">
+    <img src="./Stacker_logo_02.png" width="400px" />
+</a>
+<br/><br/>
+<div id="stackerpositions">
+</div>
+</body>
+</html>

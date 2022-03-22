@@ -1,0 +1,4 @@
+Pressed:
+Colors > Brightness and Contrast > 
+Brightness: 75
+Contrast: 0
